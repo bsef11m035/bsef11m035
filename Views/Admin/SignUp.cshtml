@@ -15,7 +15,7 @@
           
 			      
       <div  class="form">
-    		<form id="contactform" action="/Admin/Submit" method="post"> 
+    		<form id="contactform"> 
     			@*<p class="contact"><label for="name">Name</label></p> 
     			<input id="name" name="name" required="" tabindex="1" type="text">*@ 
     			  <label for="firstName">First Name:</label>
@@ -100,7 +100,7 @@
                 }
                 else {
                     alert("No User Name =" + userName);
-                    
+
                 }
             });
 
@@ -114,23 +114,24 @@
 
     });
 
-    $('#Submit1').click(function () {
-
-        var userName = $('#Address').val();
-
-
-        $.getJSON("/Admin/isAvailable?UserName=" + userName, function (data) {
-            if (data) {
-
-                alert("User Name already exist :" + userName  );
-
-
-            }
-            else {
-                alert(" User creaded =" + userName);
-
-            }
-        });
-
-    });
+   
     </script>
+<script> $('#Submit1').click(function () {
+     
+     var userName = $('#Address').val();
+
+
+     $.getJSON("/Admin/isAvailable?UserName=" + userName, function (data) {
+         if (data) {
+
+             alert("User Name already exist :" + userName);
+
+
+         }
+         else {
+             alert(" User creaded =" + userName);
+
+         }
+     });
+
+ });</script>
